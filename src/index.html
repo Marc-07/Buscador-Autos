@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css">
+</head>
+<html>
+
+<body class="min-h-screen bg-blue-200">
+
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl text-black pt-16 text-center uppercase font-bold">BUSCADOR DE AUTOS</h1>
+        <form class="mt-8 bg-white rounded-lg pt-3 pr-2 pb-1">
+
+            <!-- Fila con 4 selectores -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pl-4 pr-4">
+                <div class="w-full">
+                    <label for="marca" class="block text-sm font-medium text-gray-700 ml-2">Marca</label>
+                    <select id="marca" class="select select-bordered w-full mt-2">
+                        <option disabled selected>Select</option>
+                        <option>BMW</option>
+                        <option>Renault</option>
+                        <option>Ford</option>
+                        <option>Audi</option>
+                        <option>Nissan</option>
+                    </select>
+                </div>
+                <div class="w-full">
+                    <label for="año" class="block text-sm font-medium text-gray-700 ml-2">Año</label>
+                    <select id="year" class="select select-bordered w-full mt-2">
+                        <option disabled selected>Select</option>
+                    </select>
+                </div>
+                <div class="w-full">
+                    <label for="precio-min" class="block text-sm font-medium text-gray-700 ml-2">Precio Min.</label>
+                    <select id="precio-min" class="select select-bordered w-full mt-2">
+                        <option>Select</option>
+                        <option>$10,000</option>
+                        <option>$20,000</option>
+                        <option>$30,000</option>
+                    </select>
+                </div>
+                <div class="w-full">
+                    <label for="precio-max" class="block text-sm font-medium text-gray-700 ml-2">Precio Max.</label>
+                    <select id="precio-max" class="select select-bordered w-full mt-2">
+                        <option disabled selected>Select</option>
+                        <option>$40,000</option>
+                        <option>$50,000</option>
+                        <option>$60,000</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Fila con 3 selectores -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4 pl-4 pr-4">
+                <div class="w-full">
+                    <label for="puerta" class="block text-sm font-medium text-gray-700 ml-2">Puerta</label>
+                    <select id="puerta" class="select select-bordered w-full mt-2">
+                        <option disabled selected>Select</option>
+                        <option>2 Puertas</option>
+                        <option>4 Puertas</option>
+                    </select>
+                </div>
+                <div class="w-full">
+                    <label for="transmision" class="block text-sm font-medium text-gray-700 ml-2">Transmisión</label>
+                    <select id="transmision" class="select select-bordered w-full mt-2">
+                        <option disabled selected>Select</option>
+                        <option>Manual</option>
+                        <option>Automática</option>
+                    </select>
+                </div>
+                <div class="w-full" >
+                    <label for="color" class="block text-sm font-medium text-gray-700 ml-2 ">Color</label>
+                    <select id="color" class="select select-bordered w-full mt-2">
+                        <option disabled selected>Select</option>
+                        <option>Rojo</option>
+                        <option>Azul</option>
+                        <option>Negro</option>
+                    </select>
+                </div>
+            </div>
+
+            <h1 class="text-4xl text-black pt-16 text-center uppercase font-bold mt-20">Resultados</h1>
+            <div id="resultado" class="text-black text-center text-lg uppercase font-semibold mt-10 mb-10 pl-2"  ></div>
+            
+        </form>
+        
+    </div>
+
+    <foote class="footer footer-center  p-10">
+        <aside>
+            <h1> &copy; Practicando Código - María Ramos</h1>
+        </aside>
+    </foote>
+
+    <script src="/src/app.js"></script>
+    <script src="/src/db.js"></script>
+
+
+
+</html>
