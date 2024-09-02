@@ -30,7 +30,7 @@ console.log(min);
 
 //Eventos
 document.addEventListener("DOMContentLoaded", () =>{
-    mostrarAutos(); //Muestra los autos al cargar
+    mostrarAutos(autos); //Muestra los autos al cargar
 
     //Lista de las opciones de años
     llenarSelect();
@@ -45,6 +45,7 @@ marca.addEventListener("change", (e)=>{
 });
 year.addEventListener("change", (e)=>{
     datosBusqueda.year = e.target.value;
+    filtrarAuto();
 });
 precioMin.addEventListener("change", (e)=>{
     datosBusqueda.precioMin = e.target.value;
@@ -64,7 +65,11 @@ color.addEventListener("change", (e)=>{
 
 
 //Funciones
-function mostrarAutos(){
+function mostrarAutos(autos){
+
+    //Elimina el HTML previo
+    limpiarHTML();
+
     autos.map (auto => {
         const {marca, modelo, year, puertas, transmision, color, precio} = auto;
         const autoHTML = document.createElement("P");
@@ -81,6 +86,14 @@ function mostrarAutos(){
     });
 };
 
+//Limpiar HTML
+function limpiarHTML (){
+    while(resultado.firstChild){
+        resultado.removeChild(resultado.firstChild);
+    };
+};
+
+
 function llenarSelect(){
     for (let i = max; i>min; i --){
         const opcion = document.createElement("OPTION");
@@ -91,8 +104,12 @@ function llenarSelect(){
 };
 
 function filtrarAuto(){
-    const resultado = autos.filter(filtrarMarca);
-    console.log(resultado);
+    const resultado = autos.filter(filtrarMarca).filter(filtrarYear);
+    //console.log(resultado);
+
+    mostrarAutos(resultado)
+
+
 };
 
 function filtrarMarca (auto){
@@ -100,6 +117,14 @@ function filtrarMarca (auto){
     if ( marca){
         return auto.marca === marca;
     }
-    return;
+    return auto;
+}
+
+function filtrarYear (auto){
+    const {year} = datosBusqueda;
+    if ( year){
+        return auto.year === parseInt(year);
+    }
+    return auto;
 }
 
