@@ -3,7 +3,7 @@ const marca = document.querySelector("#marca");
 const year = document.querySelector("#year");
 const precioMin = document.querySelector("#precio-min");
 const precioMax = document.querySelector("#precio-max");
-const puerta = document.querySelector("#puerta");
+const puertas = document.querySelector("#puerta");
 const transmision = document.querySelector("#transmision");
 const color = document.querySelector("#color")
 
@@ -18,8 +18,8 @@ const min = max -10;
 const datosBusqueda = {
     marca: "",
     year: "",
-    minimo: "",
-    maximo: "",
+    precioMin: "",
+    precioMax: "",
     puertas: "",
     transmision: "",
     color: "",
@@ -36,6 +36,32 @@ document.addEventListener("DOMContentLoaded", () =>{
     llenarSelect();
   
 });
+
+//Events listeners para los selectores de busqueda
+marca.addEventListener("change", (e)=>{
+    datosBusqueda.marca = e.target.value;
+});
+year.addEventListener("change", (e)=>{
+    datosBusqueda.year = e.target.value;
+});
+precioMin.addEventListener("change", (e)=>{
+    datosBusqueda.precioMin = e.target.value;
+});
+precioMax.addEventListener("change", (e)=>{
+    datosBusqueda.precioMax = e.target.value;
+});
+puertas.addEventListener("change", (e)=>{
+    datosBusqueda.puertas = e.target.value;
+});
+transmision.addEventListener("change", (e)=>{
+    datosBusqueda.transmision = e.target.value;
+});
+color.addEventListener("change", (e)=>{
+    datosBusqueda.color = e.target.value;
+
+    console.log(datosBusqueda);
+});
+
 
 //Funciones
 function mostrarAutos(){
